@@ -1,0 +1,37 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+:root {
+    /* font size */
+    --head-font : 2.2rem;
+    --main-font : 1.6rem;
+    --small-font : 1.4rem;
+    --caption-font : 1.2rem;
+
+    /* color */
+    --gray-color: #999999;
+    --notion-color: #FF5400;
+}
+html {font-size:62.5%}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.6rem;
+}
+h2, p, ul, li {margin: 0; padding: 0}
+a {
+    color: #000;
+    text-decoration: none;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+`;
+
+export default GlobalStyle;
