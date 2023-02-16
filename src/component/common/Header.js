@@ -11,6 +11,17 @@ const Header = () => {
     return(
         <HeaderWrap>
         <h1>Logo</h1>
+        <ul>
+            <li>
+                Home
+            </li>
+            <li>
+                About
+            </li>
+            <li>
+                Portfolio
+            </li>
+        </ul>
         </HeaderWrap>
     )
 }
