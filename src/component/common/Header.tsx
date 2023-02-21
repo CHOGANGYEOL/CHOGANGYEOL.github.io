@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderWrap = styled.header`
@@ -7,15 +7,33 @@ const HeaderWrap = styled.header`
   max-width: 90rem;
   transform: translateX(-50%);
   left: 50%;
+  padding-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3rem;
+    a.active {
+      color:var(--point-color);
+    }
+  }
 `;
 const Header = () => {
   return (
     <HeaderWrap>
       <h1>logo</h1>
       <ul>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/portfolio">Portfolio</Link>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/about">About</NavLink>
+        </li>
+        <li>
+          <NavLink to="/portfolio">Portfolio</NavLink>
+        </li>
       </ul>
     </HeaderWrap>
   );

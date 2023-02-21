@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     /* color */
     --gray-color: #999999;
     --notion-color: #FF5400;
+    --point-color: #BB2649;
 }
 html {font-size:62.5%}
 body {
@@ -22,7 +23,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
 }
-h2, p, ul, li {margin: 0; padding: 0}
+h1, h2, p, ul, li, ol {margin: 0; padding: 0}
+ul, ol {
+  list-style: none;
+}
 a {
     color: #000;
     text-decoration: none;

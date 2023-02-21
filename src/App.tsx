@@ -11,6 +11,7 @@ const Background = styled.div`
   z-index: -1;
   background-color: #222;
 `;
+
 function App() {
   return (
     <>
