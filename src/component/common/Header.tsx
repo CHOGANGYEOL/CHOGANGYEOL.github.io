@@ -23,7 +23,7 @@ const HeaderWrap = styled.header`
 const Header = () => {
   return (
     <HeaderWrap>
-      <h1>logo</h1>
+      <h1>CGYBlog</h1>
       <ul>
         <li>
           <NavLink to="/">Home</NavLink>
