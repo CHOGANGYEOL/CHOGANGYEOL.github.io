@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     --gray-color: #999999;
     --notion-color: #FF5400;
     --point-color: #BB2649;
+    --white-color: #fff;
 }
 html {font-size:62.5%}
 body {
@@ -35,7 +36,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+#root {
+  display: flex;
+  justify-content: center;
+}
 `;
 
 export default GlobalStyle;
