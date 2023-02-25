@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import four from "../../image/404.png";
-import oops from "../../image/oops.png";
 const NotFoundWrap = styled.article`
   text-align: center;
   display: flex;
@@ -22,14 +21,14 @@ const NotFoundWrap = styled.article`
     margin-bottom: 2rem;
   }
   .btn {
-    border:1px solid var(--white-color);
-    color:var(--white-color);
+    border: 1px solid var(--white-color);
+    color: var(--white-color);
     background-color: transparent;
-    padding:1rem 4rem;
+    padding: 1rem 4rem;
     cursor: pointer;
-    transition:0.2s all;
+    transition: 0.2s all;
     :hover {
-        background-color: rgba(255,255,255, 0.2);
+      background-color: rgba(255, 255, 255, 0.2);
     }
   }
 `;
@@ -44,7 +43,9 @@ const NotFound = () => {
         Are you sure the website URL is correct?<br></br>
         Get in touch with the site owner.
       </p>
-      <button onClick={() => navigate(-1)} className="btn">Go back</button>
+      <button onClick={() => navigate(-1)} className="btn">
+        Go back
+      </button>
     </NotFoundWrap>
   );
 };

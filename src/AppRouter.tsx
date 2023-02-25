@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./component/common/Header";
 import NotFound from "./component/common/NotFound";
+import About from "./page/About";
 import Home from "./page/Home";
 
 const Container = styled.section`
@@ -16,6 +17,7 @@ const AppRouter = () => {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
