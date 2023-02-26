@@ -4,6 +4,7 @@ import Header from "./component/common/Header";
 import NotFound from "./component/common/NotFound";
 import About from "./page/About";
 import Home from "./page/Home";
+import Portfolio from "./page/Portfolio";
 
 const Container = styled.section`
   width: 100%;
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
