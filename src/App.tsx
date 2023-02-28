@@ -9,7 +9,7 @@ const Background = styled.div`
   left: 0;
   right: 0;
   z-index: -1;
-  background-color: #222;
+  background-color: #000;
 `;
 
 function App() {

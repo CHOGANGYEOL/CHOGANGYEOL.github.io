@@ -3,15 +3,17 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 :root {
     /* font size */
+    --big-font : 3.6rem;
     --head-font : 2.2rem;
+    --sub-head-font : 1.8rem;
     --main-font : 1.6rem;
     --small-font : 1.4rem;
     --caption-font : 1.2rem;
 
     /* color */
-    --gray-color: #999999;
+    --gray-color: #a2a2a2;
     --notion-color: #FF5400;
-    --point-color: #BB2649;
+    --point-color: #eb4a4c;
     --white-color: #fff;
 }
 html {font-size:62.5%}
@@ -23,13 +25,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
+  color:var(--white-color);
 }
 h1, h2, p, ul, li, ol {margin: 0; padding: 0}
 ul, ol {
   list-style: none;
 }
 a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 code {
