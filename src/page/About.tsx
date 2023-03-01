@@ -18,24 +18,26 @@ const AboutWrap = styled.article`
         max-width: 100%;
       }
     }
-    .desc {
-      flex-basis: 60%;
-      padding-left: 10rem;
-    }
   }
-  .desc {
+  .profile {
+    flex-basis: 60%;
+    padding-left: 10rem;
     h2 {
-        font-size:var(--big-font);
-        margin-bottom:1.5rem;
+      font-size: var(--big-font);
+      margin-bottom: 1.5rem;
     }
     .sub-title {
-        font-size:var(--sub-head-font);
-        font-weight: 600;
-        color: var(--gray-color);
-        margin-bottom: 5rem;
-        span {
-            color:var(--point-color);
-        }
+      font-size: var(--sub-head-font);
+      font-weight: 600;
+      color: var(--gray-color);
+      margin-bottom: 5rem;
+      span {
+        color: var(--point-color);
+      }
+    }
+    .desc {
+        color:var(--gray-color);
+        line-height: 150%;
     }
   }
 `;
@@ -47,12 +49,12 @@ const About = () => {
         <div className="imgWrap">
           <img src={profileImg} alt="profileImg" />
         </div>
-        <div className="desc">
+        <div className="profile">
           <h2>KANGYEOL CHO</h2>
           <p className="sub-title">
             <span>Frontend</span> Developer
           </p>
-          <p className="">
+          <p className="desc">
             Hello, I'm KANGYEOL CHO and happy developer. I am currently working
             on Front-End (React) development. This is a space that introduces me
             and records my growth log. This is like my growing up diary. Please
