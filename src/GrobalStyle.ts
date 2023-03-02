@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
 :root {
     /* font size */
     --big-font : 3.6rem;
-    --head-font : 2.2rem;
+    --head-font : 3rem;
     --sub-head-font : 1.8rem;
     --main-font : 1.6rem;
     --small-font : 1.4rem;
