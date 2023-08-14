@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import four from "../../image/404.png";
+import four from "../image/404.png";
 const NotFoundWrap = styled.article`
   text-align: center;
   display: flex;
