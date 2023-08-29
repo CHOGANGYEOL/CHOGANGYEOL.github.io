@@ -3,9 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 :root {
     /* font size */
-    --big-font : 3.6rem;
-    --head-font : 3rem;
-    --sub-head-font : 1.8rem;
+    --title-font : 3rem;
+    --big-font : 1.8rem;
     --main-font : 1.6rem;
     --small-font : 1.4rem;
     --caption-font : 1.2rem;
@@ -16,10 +15,13 @@ const GlobalStyle = createGlobalStyle`
     --point-color: #eb4a4c;
     --white-color: #fff;
 }
+* {
+  box-sizing: border-box;
+}
 html {font-size:62.5%}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Montserrat', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
