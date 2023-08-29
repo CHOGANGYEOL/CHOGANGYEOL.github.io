@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PortfolioData } from "../data/PortfolioData";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,14 +9,47 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
+import { Link } from "react-router-dom";
+const Portfolio = () => {
+  return (
+    <ProtfolioWrap>
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        breakpoints={{
+          765: {
+            slidesPerView: 2,
+          },
+          1100: {
+            slidesPerView: 4,
+          },
+        }}
+        // slidesPerView={4}
+        className="mySwiper"
+      >
+        {PortfolioData.map((el, idx) => {
+          return (
+            <SwiperSlide key={"swiper" + idx}>
+              <Link to={el.link} className="contents">
+                <h3>{el.title}</h3>
+                <p>{el.description}</p>
+              </Link>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </ProtfolioWrap>
+  );
+};
 
 const ProtfolioWrap = styled.article`
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 8rem);
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
+  background-color: #000;
   .mainTitle {
     width: 100%;
     > h3 {
@@ -26,14 +60,13 @@ const ProtfolioWrap = styled.article`
     }
     border-bottom: 1px solid var(--gray-color);
   }
-  .swiper {
+  .mySwiper {
     width: 100%;
     height: 100%;
-    color : #000;
+    color: #000;
     .swiper-slide {
       text-align: center;
       font-size: 18px;
-      background: #fff;
       /* Center slide text vertically */
       display: flex;
       justify-content: center;
@@ -47,35 +80,5 @@ const ProtfolioWrap = styled.article`
     }
   }
 `;
-
-const Portfolio = () => {
-  return (
-    <ProtfolioWrap>
-      <div className="mainTitle">
-        <h3>
-          Project <span>Portfolio</span>
-        </h3>
-      </div>
-      <Swiper
-        pagination={{
-          type: "fraction",
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-    </ProtfolioWrap>
-  );
-};
 
 export default Portfolio;

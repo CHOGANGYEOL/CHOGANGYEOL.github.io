@@ -10,8 +10,6 @@ const About = () => {
         <p className="static">Developer</p>
         <p>CHO GANGYEOL</p>
       </div>
-      <h3>Stay hungry</h3>
-      <h3>Stay foolish</h3>
     </AboutWrap>
   );
 };
@@ -20,11 +18,16 @@ const AboutWrap = styled.section`
   width: 100%;
   min-height: 100vh;
   background-color: #000;
-  padding: 10rem 24px 0;
+  padding: 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .title {
     .variable {
       font-size: 12rem;
+      line-height: 12rem;
       display: flex;
+      flex-wrap: wrap;
       font-variation-settings: "wght" 275, "wdth" 50;
       text-align: center;
       animation: swapthings 3s infinite both
