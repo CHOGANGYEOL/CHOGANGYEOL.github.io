@@ -1,5 +1,5 @@
 import AppRouter from "./AppRouter";
-import GlobalStyle from "./GrobalStyle";
+import GlobalStyle from "./GlobalStyle";
 
 function App() {
   return (

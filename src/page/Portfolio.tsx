@@ -11,6 +11,11 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper";
 import { Link } from "react-router-dom";
+
+interface ItemProps {
+  image: string;
+}
+
 const Portfolio = () => {
   return (
     <ProtfolioWrap>
@@ -31,10 +36,12 @@ const Portfolio = () => {
         {PortfolioData.map((el, idx) => {
           return (
             <SwiperSlide key={"swiper" + idx}>
-              <Link to={el.link} className="contents">
-                <h3>{el.title}</h3>
-                <p>{el.description}</p>
-              </Link>
+              <Item image={el.image}>
+                <Link to={el.link} className="contents">
+                  <h3>{el.title}</h3>
+                  <p>{el.description}</p>
+                </Link>
+              </Item>
             </SwiperSlide>
           );
         })}
@@ -43,40 +50,59 @@ const Portfolio = () => {
   );
 };
 
-const ProtfolioWrap = styled.article`
+const Item = styled.div<ItemProps>`
+  position: relative;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  transition: 0.15s transform;
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-  .mainTitle {
-    width: 100%;
-    > h3 {
-      font-size: var(--head-font);
-      span {
-        color: var(--point-color);
-      }
+  :hover {
+    transform: scale(1.1);
+    a {
+      position: relative;
+      padding: 24px 24px 72px;
     }
-    border-bottom: 1px solid var(--gray-color);
   }
+  :not(:hover) {
+    ::before {
+      opacity: 0.3;
+    }
+  }
+  ::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    opacity: 0;
+    transition: 0.15s opacity;
+  }
+  a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-end;
+    padding: 24px;
+    transition: 0.15s padding;
+    h3 {
+      font-size: var(--title-font);
+      margin-bottom: 12px;
+    }
+  }
+`;
+
+const ProtfolioWrap = styled.article`
+  height: 100vh;
+  background-color: #000;
   .mySwiper {
     width: 100%;
     height: 100%;
     color: #000;
     .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      /* Center slide text vertically */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      overflow: hidden;
     }
   }
 `;
