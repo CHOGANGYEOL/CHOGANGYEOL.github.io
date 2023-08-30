@@ -1,17 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.21129cd8.css",
-    "main.js": "/static/js/main.408e6992.js",
+    "main.js": "/static/js/main.986fc5a3.js",
     "static/js/787.baf8ba58.chunk.js": "/static/js/787.baf8ba58.chunk.js",
+    "static/media/AzitSwiper.jpg": "/static/media/AzitSwiper.a998a771deb2711a8243.jpg",
     "static/media/FulldiveSwiper.jpg": "/static/media/FulldiveSwiper.5b44bb26c8ef647c1567.jpg",
+    "static/media/FulldiveAdminSwiper.jpg": "/static/media/FulldiveAdminSwiper.62eb0886139b84365ea5.jpg",
     "static/media/404.png": "/static/media/404.b2ca95da46edd9d8614b.png",
     "index.html": "/index.html",
     "main.21129cd8.css.map": "/static/css/main.21129cd8.css.map",
-    "main.408e6992.js.map": "/static/js/main.408e6992.js.map",
+    "main.986fc5a3.js.map": "/static/js/main.986fc5a3.js.map",
     "787.baf8ba58.chunk.js.map": "/static/js/787.baf8ba58.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.21129cd8.css",
-    "static/js/main.408e6992.js"
+    "static/js/main.986fc5a3.js"
   ]
 }
