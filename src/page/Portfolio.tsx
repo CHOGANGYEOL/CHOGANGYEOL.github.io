@@ -62,7 +62,7 @@ const Item = styled.div<ItemProps>`
     transform: scale(1.1);
     a {
       position: relative;
-      padding: 24px 24px 72px;
+      padding: 24px 24px 96px;
     }
   }
   :not(:hover) {
