@@ -92,6 +92,11 @@ const Item = styled.div<ItemProps>`
       margin-bottom: 12px;
     }
   }
+  @media screen and (max-width: 765px) {
+    ::before {
+      display: none;
+    }
+  }
 `;
 
 const ProtfolioWrap = styled.article`
