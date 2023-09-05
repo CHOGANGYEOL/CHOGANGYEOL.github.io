@@ -30,7 +30,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
   color:var(--white-color);
+  overflow: hidden;
 }
+
+@media screen and (max-width: 640px) {
+  body {
+    font-size: 1.4rem;
+  }
+}
+
 h1, h2, p, ul, li, ol {margin: 0; padding: 0}
 ul, ol {
   list-style: none;

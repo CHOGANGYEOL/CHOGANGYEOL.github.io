@@ -16,7 +16,15 @@ const library = [
 
 const protocol = ["HTTP", "webSocket", "REST API"];
 
-const etc = ["Git", "Photoshop", "XD", "Figma", "Illustrator", "Notion", "Trello"];
+const etc = [
+  "Git",
+  "Photoshop",
+  "XD",
+  "Figma",
+  "Illustrator",
+  "Notion",
+  "Trello",
+];
 
 const About = () => {
   return (
@@ -70,10 +78,11 @@ const AboutWrap = styled.section`
   width: 100%;
   min-height: 100vh;
   background-color: #000;
-  padding: 0 24px 0;
+  padding: 120px 24px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: scroll;
   .title {
     .variable {
       font-size: 12rem;
@@ -121,6 +130,26 @@ const AboutWrap = styled.section`
       }
     }
   }
+  @media screen and (max-width: 640px) {
+    .title {
+      .variable {
+        font-size: 8rem;
+        line-height: 8rem;
+      }
+      .static {
+        font-size: 24px;
+      }
+    }
+
+    .body {
+      margin-top: 24px;
+      gap: 14px;
+      h4 {
+        font-size: var(--main-font);
+      }
+    }
+  }
+
   @keyframes swapthings {
     0% {
       font-variation-settings: "wght" 275, "wdth" 50;
