@@ -1,26 +1,21 @@
-import styled from "styled-components";
-import { PortfolioData } from "../data/PortfolioData";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import styled from 'styled-components';
+import * as Swiper from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper';
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import { PortfolioData } from '../data/PortfolioData';
 
-// import required modules
-import { Navigation } from "swiper";
-import { Link } from "react-router-dom";
-
-interface ItemProps {
+interface IItem {
   image: string;
 }
 
 const Portfolio = () => {
   return (
     <ProtfolioWrap>
-      <Swiper
-        navigation={true}
+      <Swiper.Swiper
+        navigation
         modules={[Navigation]}
         breakpoints={{
           765: {
@@ -31,26 +26,26 @@ const Portfolio = () => {
           },
         }}
         // slidesPerView={4}
-        className="mySwiper"
+        className='mySwiper'
       >
-        {PortfolioData.map((el, idx) => {
+        {PortfolioData.map((el) => {
           return (
-            <SwiperSlide key={"swiper" + idx}>
+            <Swiper.SwiperSlide key={`swiper_${el.title}`}>
               <Item image={el.image}>
-                <Link to={el.link} className="contents">
+                <div className='contents'>
                   <h3>{el.title}</h3>
                   <p>{el.description}</p>
-                </Link>
+                </div>
               </Item>
-            </SwiperSlide>
+            </Swiper.SwiperSlide>
           );
         })}
-      </Swiper>
+      </Swiper.Swiper>
     </ProtfolioWrap>
   );
 };
 
-const Item = styled.div<ItemProps>`
+const Item = styled.div<IItem>`
   position: relative;
   background-image: url(${(props) => props.image});
   background-size: cover;
@@ -60,7 +55,7 @@ const Item = styled.div<ItemProps>`
   display: flex;
   :hover {
     transform: scale(1.1);
-    a {
+    .contents {
       position: relative;
       padding: 24px 24px 96px;
     }
@@ -71,14 +66,14 @@ const Item = styled.div<ItemProps>`
     }
   }
   ::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     background-color: #000;
     opacity: 0;
     transition: 0.15s opacity;
   }
-  a {
+  .contents {
     width: 100%;
     height: 100%;
     display: flex;
@@ -87,6 +82,7 @@ const Item = styled.div<ItemProps>`
     justify-content: flex-end;
     padding: 24px;
     transition: 0.15s padding;
+    color: var(--white-color);
     h3 {
       font-size: var(--title-font);
       margin-bottom: 12px;

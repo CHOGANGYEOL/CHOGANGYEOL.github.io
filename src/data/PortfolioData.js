@@ -2,9 +2,25 @@ import FulldiveSwiper from "../image/swiper/FulldiveSwiper.jpg"
 import FulldiveAdminSwiper from "../image/swiper/FulldiveAdminSwiper.jpg"
 import AzitSwiper from "../image/swiper/AzitSwiper.jpg"
 
-
-
 export const PortfolioData = [
+  {
+    title: "Goodpharm",
+    description: "굿팜 홈페이지 리뉴얼",
+    image: FulldiveSwiper,
+    link: "",
+  },
+  {
+    title: "Goodpharm CRM",
+    description: "굿팜 약사용 앱 유지보수",
+    image: FulldiveSwiper,
+    link: "",
+  },
+  {
+    title: "Goodpharm Admin",
+    description: "굿팜 내부 관리용 홈페이지 유지보수",
+    image: FulldiveSwiper,
+    link: "",
+  },
   {
     title: "Fulldive",
     description: "실시간 스트리밍 플랫폼 프론트엔드개발",
