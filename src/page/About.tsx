@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const language = ["JavaScript", "TypeScript", "HTML5", "CSS3"];
@@ -39,7 +40,7 @@ const About = () => {
       <div className="body">
         <div>
           <h4>Language</h4>
-          <ul className="">
+          <ul className="itemList">
             {language.map((el, idx) => {
               return <li key={idx}>{el}</li>;
             })}
@@ -47,7 +48,7 @@ const About = () => {
         </div>
         <div>
           <h4>Library</h4>
-          <ul className="">
+          <ul className="itemList">
             {library.map((el, idx) => {
               return <li key={idx}>{el}</li>;
             })}
@@ -55,7 +56,7 @@ const About = () => {
         </div>
         <div>
           <h4>Protocol</h4>
-          <ul className="">
+          <ul className="itemList">
             {protocol.map((el, idx) => {
               return <li key={idx}>{el}</li>;
             })}
@@ -63,10 +64,27 @@ const About = () => {
         </div>
         <div>
           <h4>etc.</h4>
-          <ul className="">
+          <ul className="itemList">
             {etc.map((el, idx) => {
               return <li key={idx}>{el}</li>;
             })}
+          </ul>
+        </div>
+        <div>
+          <h4>Link</h4>
+          <ul className="hyphenList">
+            <li>
+              <a
+                href="https://github.com/CHOGANGYEOL"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Github
+              </a>
+            </li>
+            <li>
+              <Link to="/portfolio">Portfolio</Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -113,13 +131,13 @@ const AboutWrap = styled.section`
     h4 {
       font-size: var(--big-font);
       /* color:#ccc; */
+      margin-bottom: 6px;
     }
-    ul {
+    ul.itemList {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
       gap: 6px;
-      margin-top: 6px;
       li {
         padding: 2px 8px;
         color: #000;
@@ -127,6 +145,24 @@ const AboutWrap = styled.section`
         border-radius: 100px;
         font-size: var(--small-font);
         font-weight: 500;
+      }
+    }
+    ul.hyphenList {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      li {
+        display: inline-block;
+        transition: 0.15s all;
+        
+        ::before {
+          content: "- ";
+        }
+        :hover {
+          padding-left: 4px;
+          opacity: 0.6;
+        }
       }
     }
   }
