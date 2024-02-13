@@ -1,20 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-:root {
-    /* font size */
-    --title-font : 3rem;
-    --big-font : 1.8rem;
-    --main-font : 1.6rem;
-    --small-font : 1.4rem;
-    --caption-font : 1.2rem;
-
-    /* color */
-    --gray-color: #a2a2a2;
-    --notion-color: #FF5400;
-    --point-color: #eb4a4c;
-    --white-color: #fff;
-}
 * {
   box-sizing: border-box;
   padding:0;
@@ -29,7 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
-  color:var(--white-color);
+  color:${({ theme }) => theme.colors.white};
   overflow: hidden;
 }
 

@@ -37,12 +37,12 @@ const NotFoundWrap = styled.article`
     margin-bottom: 4rem;
   }
   .desc {
-    color: var(--gray-color);
+    color: ${({theme}) => theme.colors.gray};
     margin-bottom: 2rem;
   }
   .btn {
-    border: 1px solid var(--white-color);
-    color: var(--white-color);
+    border: 1px solid ${({theme}) => theme.colors.white};
+    color: ${({theme}) => theme.colors.white};
     background-color: transparent;
     padding: 1rem 4rem;
     cursor: pointer;

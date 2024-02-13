@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import Logo from "../../image/Logo.png";
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import Logo from '../../image/Logo.png';
 
 const Header = () => {
   return (
     <HeaderWrap>
       <h1>
-        <Link to={"/"}>
+        <Link to={'/'}>
           <span>CHO GANGYEOL BLOG</span>
         </Link>
       </h1>
       <nav>
-        <NavLink to="/">About</NavLink>
-        <NavLink to="/portfolio">Portfolio</NavLink>
+        <NavLink to='/'>About</NavLink>
+        <NavLink to='/portfolio'>Portfolio</NavLink>
       </nav>
     </HeaderWrap>
   );
@@ -51,13 +51,13 @@ const HeaderWrap = styled.header`
     display: flex;
     gap: 24px;
     a {
-      font-size: var(--big-font);
+      font-size: ${({ theme }) => theme.fontSize.big};
       font-weight: bold;
       transition: 0.15s color;
     }
     a.active,
     a:hover {
-      color: var(--point-color);
+      color: ${({ theme }) => theme.colors.point};
     }
   }
 `;

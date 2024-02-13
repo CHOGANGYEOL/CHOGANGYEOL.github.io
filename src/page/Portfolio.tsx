@@ -82,9 +82,9 @@ const Item = styled.div<IItem>`
     justify-content: flex-end;
     padding: 24px;
     transition: 0.15s padding;
-    color: var(--white-color);
+    color: ${({ theme }) => theme.colors.white};
     h3 {
-      font-size: var(--title-font);
+      font-size: ${({ theme }) => theme.fontSize.title};
       margin-bottom: 12px;
     }
   }
