@@ -1,32 +1,37 @@
 import { DefaultTheme } from 'styled-components';
 
 const colors = {
-  gray: '#a2a2a2',
-  notion: '#ff5400',
-  point: '#eb4a4c',
-  white: '#fff',
-};
+  point: "#f87c56",
+	gray: '#aaa',
+  black: '#222',
+  white: "#fff",
+  purple: "#5666f8"
+} as const;
 
 const fontSize = {
-  title: '3rem',
-  big: '1.8rem',
-  main: '1.6rem',
-  small: '1.4rem',
-  caption: '1.2rem',
-};
+	title: {
+		bigTitle: '5.4rem;',
+		mainTitle: '2.4rem;',
+		subTitle: '2.0rem;',
+		pageTitle: '4.8rem;',
+	},
+	big: '1.6rem',
+	main: '1.4rem',
+	small: '1.2rem',
+} as const;
 
 const breakPoint = {
-  small: 'max-width: 640px',
-  medium: 'max-width: 768px',
-  large: 'max-width: 1024px',
-  xLarge: 'max-width: 1280px',
-};
+	small: 'max-width: 640px',
+	medium: 'max-width: 768px',
+	large: 'max-width: 1024px',
+	xLarge: 'max-width: 1280px',
+} as const;
 
 const Theme: DefaultTheme = {
-  colors,
-  fontSize,
-  breakPoint,
-};
+	colors,
+	fontSize,
+	breakPoint,
+} as const;
 
 type ColorsType = typeof colors;
 type FontSizeType = typeof fontSize;
