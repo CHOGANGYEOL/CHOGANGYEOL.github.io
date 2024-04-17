@@ -4,15 +4,21 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Header } from './layout';
+import { HEADER_HEIGHT } from './layout/Header';
 import { Pages } from './pages';
 
-const Container = styled.main``;
+const Main = styled.main`
+	position: relative;
+	min-height: calc(100vh - ${HEADER_HEIGHT});
+	display: flex;
+	flex-direction: column;
+`;
 
 const Router = () => {
 	return (
 		<BrowserRouter>
 			<Header />
-			<Container>
+			<Main>
 				<Routes>
 					<Route path="/" element={<Pages.Main />} />
 					<Route path="/project" element={<Pages.Project />} />
@@ -21,7 +27,7 @@ const Router = () => {
 					<Route path="/terminal" element={<Pages.Terminal />} />
 					<Route path="*" element={<Pages.NotFound />} />
 				</Routes>
-			</Container>
+			</Main>
 		</BrowserRouter>
 	);
 };

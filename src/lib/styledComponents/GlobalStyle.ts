@@ -15,7 +15,9 @@ body {
   color:${({ theme }) => theme.colors.black};
   overflow: hidden;
 }
-
+#root {
+  background-color: ${({ theme }) => theme.colors.white};
+}
 h1, h2, p, ul, li, ol {margin: 0; padding: 0}
 ul, ol {
   list-style: none;
@@ -29,7 +31,9 @@ button {
     cursor: default;
   }
 }
-
+img {
+  max-width: 100%;
+}
 `;
 
 export default GlobalStyle;
