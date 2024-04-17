@@ -26,7 +26,16 @@ const Svg = styled.svg<IconStyleProps>`
 		0.15s opacity,
 		0.15s color;
 	color: ${({ $defaultColor, theme }) => $defaultColor && theme.colors[$defaultColor]};
-	color: ${({ $isActive, $activeColor, theme }) => $isActive && $activeColor && theme.colors[$activeColor]};
+	${({ $isActive, $activeColor, theme }) =>
+		$isActive &&
+		$activeColor &&
+		css`
+			color: ${theme.colors[$activeColor]};
+		`};
+
+	&:hover {
+		color: ${({ $activeColor, theme }) => $activeColor && theme.colors[$activeColor]};
+	}
 	${({ $isDisabled, $disabledColor, theme }) =>
 		$isDisabled &&
 		$disabledColor &&

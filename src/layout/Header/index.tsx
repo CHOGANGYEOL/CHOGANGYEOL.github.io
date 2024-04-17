@@ -20,12 +20,25 @@ export const Header = () => {
 	return (
 		<HeaderWrap>
 			<IconButton
-				iconId={IconID.NAV_DASHBOARD}
+				iconId={IconID.MENU}
 				onClick={() => {
 					console.log('click');
 				}}
 			/>
-			<nav></nav>
+			<nav>
+				<IconButton
+					iconId={IconID.GITHUB}
+					onClick={() => {
+						console.log('click');
+					}}
+				/>
+				<IconButton
+					iconId={IconID.ENLARGE}
+					onClick={() => {
+						console.log('click');
+					}}
+				/>
+			</nav>
 		</HeaderWrap>
 	);
 };

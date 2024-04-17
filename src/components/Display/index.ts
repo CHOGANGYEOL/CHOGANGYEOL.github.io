@@ -1,3 +1,4 @@
 import { Icon } from './Icon';
+import { Typing } from './Typing';
 
-export { Icon };
+export { Icon, Typing };
