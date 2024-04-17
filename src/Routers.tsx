@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Header } from './components/Common';
+import { Header } from './layout';
 import { Pages } from './pages';
 
 const Container = styled.main``;

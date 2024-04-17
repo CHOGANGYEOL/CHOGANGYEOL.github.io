@@ -1,5 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
+import { FilterObjectKeys, IncludeNestedKeys } from '../../utils/types';
+
 const colors = {
 	point: '#f87c56',
 	gray: '#aaa',
@@ -34,9 +36,15 @@ const Theme: DefaultTheme = {
 } as const;
 
 type ColorsType = typeof colors;
+
+type ColorKeys = FilterObjectKeys<ColorsType> | IncludeNestedKeys<ColorsType>;
+
 type FontSizeType = typeof fontSize;
+
+type FontKeys = FilterObjectKeys<FontSizeType> | IncludeNestedKeys<FontSizeType>;
+
 type BreakPointType = typeof breakPoint;
 
-export type { ColorsType, FontSizeType, BreakPointType };
+export type { ColorsType, FontSizeType, BreakPointType, ColorKeys, FontKeys };
 
 export default Theme;
