@@ -1,7 +1,12 @@
+import React from 'react';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Pages from './pages';
+
 import { Header } from './components/Common';
+import { Pages } from './pages';
+
+const Container = styled.main``;
 
 const Router = () => {
 	return (
@@ -20,7 +25,5 @@ const Router = () => {
 		</BrowserRouter>
 	);
 };
-
-const Container = styled.main``;
 
 export default Router;

@@ -5,4 +5,4 @@ import Profile from './Profile';
 import Project from './Project';
 import Terminal from './Terminal';
 
-export default { Blog, Main, Profile, Project, Terminal, NotFound };
+export const Pages = { Blog, Main, Profile, Project, Terminal, NotFound };

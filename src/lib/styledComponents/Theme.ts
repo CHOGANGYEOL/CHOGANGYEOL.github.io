@@ -1,11 +1,11 @@
 import { DefaultTheme } from 'styled-components';
 
 const colors = {
-  point: "#f87c56",
+	point: '#f87c56',
 	gray: '#aaa',
-  black: '#222',
-  white: "#fff",
-  purple: "#5666f8"
+	black: '#222',
+	white: '#fff',
+	purple: '#5666f8',
 } as const;
 
 const fontSize = {

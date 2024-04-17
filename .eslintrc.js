@@ -9,6 +9,7 @@ module.exports = {
 		'react-app', // Create React App 기본 ESLint 규칙
 		'react-app/jest', // Jest 테스팅을 위한 ESLint 규칙
 		'airbnb-typescript', // Airbnb 스타일 가이드, TypeScript 지원
+		'eslint:recommended',
 		'plugin:prettier/recommended', // 'prettier' 확장을 사용
 		'plugin:react/recommended',
 		'plugin:import/typescript',
@@ -37,7 +38,7 @@ module.exports = {
 		'@typescript-eslint/no-unused-vars': 'warn',
 		'@typescript-eslint/return-await': 1,
 		'@typescript-eslint/prefer-nullish-coalescing': 1,
-		'prettier/prettier': 'warn',
+		'prettier/prettier': 'error',
 		'import/order': [
 			'warn',
 			{

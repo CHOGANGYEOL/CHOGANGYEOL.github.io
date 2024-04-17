@@ -1,16 +1,18 @@
+import React from 'react';
 
 import { ThemeProvider } from 'styled-components';
-import Routers from './Routers';
+
 import GlobalStyle from './lib/styledComponents/GlobalStyle';
 import Theme from './lib/styledComponents/Theme';
+import Routers from './Routers';
 
 function App() {
-  return (
-    <ThemeProvider theme={Theme}>
-      <GlobalStyle />
-      <Routers />
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={Theme}>
+			<GlobalStyle />
+			<Routers />
+		</ThemeProvider>
+	);
 }
 
 export default App;

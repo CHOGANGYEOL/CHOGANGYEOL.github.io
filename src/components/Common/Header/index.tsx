@@ -1,22 +1,8 @@
+import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
-export const Header = () => {
-	return (
-		<HeaderWrap>
-			<h1>
-				<Link to={'/'}>
-					<span>CHO GANGYEOL BLOG</span>
-				</Link>
-			</h1>
-			<nav>
-				<NavLink to="/">About</NavLink>
-				<NavLink to="/portfolio">Portfolio</NavLink>
-			</nav>
-		</HeaderWrap>
-	);
-};
 
 const HeaderWrap = styled.header`
 	position: fixed;
@@ -32,7 +18,7 @@ const HeaderWrap = styled.header`
 			display: block;
 			width: 50px;
 			height: 50px;
-			background-image: url("");
+			background-image: url('');
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -60,3 +46,19 @@ const HeaderWrap = styled.header`
 		}
 	}
 `;
+
+export const Header = () => {
+	return (
+		<HeaderWrap>
+			<h1>
+				<Link to={'/'}>
+					<span>CHO GANGYEOL BLOG</span>
+				</Link>
+			</h1>
+			<nav>
+				<NavLink to="/">About</NavLink>
+				<NavLink to="/portfolio">Portfolio</NavLink>
+			</nav>
+		</HeaderWrap>
+	);
+};
