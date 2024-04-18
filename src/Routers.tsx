@@ -12,6 +12,7 @@ const Main = styled.main`
 	min-height: calc(100vh - ${HEADER_HEIGHT});
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 `;
 
 const Router = () => {
