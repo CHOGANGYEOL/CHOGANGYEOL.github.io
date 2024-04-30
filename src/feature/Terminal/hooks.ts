@@ -6,7 +6,7 @@ import { Commands, ERROR_MESSAGE, PATH, Path, WHOAMI } from './const';
 
 export const useTerminal = () => {
 	const [logs, setLogs] = useState<string[]>([]);
-	const [path, setPath] = useState(['Users', WHOAMI]);
+	const [path, setPath] = useState(['', 'Users']);
 
 	const navigate = useNavigate();
 
@@ -26,6 +26,7 @@ export const useTerminal = () => {
 
 	const cd = useCallback(
 		(value: string) => {
+			console.log(value);
 			if (!PATH.includes(value as Path)) throw new Error(ERROR_MESSAGE.CD + value);
 			if (value === '~') return;
 			if (value === 'main') {
@@ -44,7 +45,7 @@ export const useTerminal = () => {
 
 	const onSubmitTerminal = useCallback(
 		(input: string) => {
-			setLogs((prev) => [...prev, input]);
+			setLogs((prev) => [...prev, WHOAMI + '@Blog ' + path[path.length - 1] + ' % ' + input]);
 			const [command, value] = input.split(' ');
 			try {
 				switch (command as Commands) {
@@ -77,7 +78,7 @@ export const useTerminal = () => {
 				}
 			}
 		},
-		[cd, clear, exit, ls, pwd, whoami],
+		[cd, clear, exit, ls, path, pwd, whoami],
 	);
 
 	return { logs, onSubmitTerminal };
