@@ -2,20 +2,21 @@ import { useCallback, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { Commands, PATH, Path } from './const';
+import { Commands, ERROR_MESSAGE, PATH, Path, WHOAMI } from './const';
 
 export const useTerminal = () => {
 	const [logs, setLogs] = useState<string[]>([]);
+	const [path, setPath] = useState(['Users', WHOAMI]);
 
 	const navigate = useNavigate();
 
 	const whoami = useCallback(() => {
-		setLogs((prev) => [...prev, 'CHOGANGYEOL']);
+		setLogs((prev) => [...prev, WHOAMI]);
 	}, []);
 
 	const pwd = useCallback(() => {
-		setLogs((prev) => [...prev, '/Users/CHOGANGYEOL']);
-	}, []);
+		setLogs((prev) => [...prev, path.join('/')]);
+	}, [path]);
 
 	const exit = useCallback(() => {
 		navigate(-1);
@@ -24,15 +25,15 @@ export const useTerminal = () => {
 	const ls = useCallback(() => {}, []);
 
 	const cd = useCallback(
-		(path: string) => {
-			console.log(path);
-			if (!PATH.includes(path as Path)) throw new Error('cd: no such file or directory: ' + path);
-			if (path === '~') return;
-			if (path === 'main') {
+		(value: string) => {
+			if (!PATH.includes(value as Path)) throw new Error(ERROR_MESSAGE.CD + value);
+			if (value === '~') return;
+			if (value === 'main') {
 				navigate('/');
 				return;
 			}
-			navigate(`/${path}`);
+			setPath((prev) => [...prev, value]);
+			navigate(`/${value}`);
 		},
 		[navigate],
 	);
@@ -66,7 +67,7 @@ export const useTerminal = () => {
 						clear();
 						break;
 					default:
-						throw new Error('command not found: ' + command);
+						throw new Error(ERROR_MESSAGE.NOT_FOUNT + command);
 				}
 			} catch (err) {
 				if (err instanceof Error) {
