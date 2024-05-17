@@ -21,6 +21,7 @@ button {
   background-color: transparent;
   cursor: pointer;
   &:disabled {
+    pointer-events: none;
     cursor: default;
   }
 }
