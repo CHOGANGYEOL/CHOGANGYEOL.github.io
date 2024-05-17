@@ -32,6 +32,9 @@ export const useOMok = () => {
   const [history, setHistory] = useState<number[][]>([]);
   const [winner, setWinner] = useState<User>(null);
 
+  /**
+   * 바둑판 reset
+   */
   const handleReset = useCallback(() => {
     setCount(0);
     setBoard(initialBoard);
@@ -39,6 +42,7 @@ export const useOMok = () => {
     setWinner(null);
     onDraw();
   }, []);
+
   /**
    * 바둑판 그리기 함수
    * @param canvas
@@ -97,16 +101,19 @@ export const useOMok = () => {
     );
   }, []);
 
+  /**
+   * 바둑판의 돌을 생성
+   * @param board - 그려질 board값
+   */
   const onDrawStone = useCallback((board: number[]) => {
     const ctx = canvasRef.current?.getContext("2d");
     if (!ctx) return;
 
-    for (let i = 0; i < board.length; i++) {
-      // 모든 눈금의 돌의 유무, 색깔 알아내기
-      const a = indexToXy(i, board)[0];
-      const b = indexToXy(i, board)[1];
-      if (board[xyToIndex(a, b)] === 1) {
-        ctx.fillStyle = "black";
+    // 모든 눈금의 돌의 유무, 색깔 알아내어 돌을 생성
+    board.forEach((value, idx) => {
+      if (value !== -1) {
+        const [a, b] = indexToXy(idx, board);
+        ctx.fillStyle = value === 1 ? "black" : "white";
         ctx.beginPath();
         ctx.arc(
           a * rowSize + MARGIN,
@@ -117,57 +124,44 @@ export const useOMok = () => {
         );
         ctx.fill();
       }
-      if (board[xyToIndex(a, b)] === 2) {
-        ctx.fillStyle = "white";
-        ctx.beginPath();
-        ctx.arc(
-          a * rowSize + MARGIN,
-          b * rowSize + MARGIN,
-          STONE_SIZE,
-          0,
-          Math.PI * 2
-        );
-        ctx.fill();
+    });
+  }, []);
+
+  /**
+   * 승자가 누구인지 알아내는 함수
+   * @param x - x축
+   * @param y - y축
+   * @param board - 비교할 board
+   */
+  const winnerChecker = useCallback((x: number, y: number, board: number[]) => {
+    const thisColor = board[xyToIndex(x, y)];
+    if (thisColor === -1) return;
+
+    const directions = CHECK_DIRECTION.slice(0, 4);
+
+    for (const [dx, dy] of directions) {
+      let count = 1;
+      for (let dir = -1; dir <= 1; dir += 2) {
+        for (let step = 1; step < 5; step++) {
+          const nx = x + dx * step * dir;
+          const ny = y + dy * step * dir;
+          if (board[xyToIndex(nx, ny)] === thisColor) {
+            count++;
+          } else {
+            break;
+          }
+        }
+      }
+      if (count >= 5) {
+        setWinner(thisColor === 1 ? "BLACK" : "WHITE");
       }
     }
   }, []);
 
-  const winnerChecker = useCallback(
-    (x: number, y: number, board: number[]) => {
-      const thisColor = board[xyToIndex(x, y)];
-
-      for (let k = 0; k < 4; k++) {
-        let winBlack = 1;
-        let winWhite = 1;
-        for (let j = 0; j < 2; j++) {
-          for (let i = 1; i < 5; i++) {
-            const a = x + CHECK_DIRECTION[k + 4 * j][0] * i;
-            const b = y + CHECK_DIRECTION[k + 4 * j][1] * i;
-            if (board[xyToIndex(a, b)] === thisColor) {
-              switch (thisColor) {
-                case 1:
-                  winBlack++;
-                  break;
-                case 2:
-                  winWhite++;
-                  break;
-              }
-            } else {
-              break;
-            }
-          }
-        }
-        if (winBlack === 5) {
-          setWinner("BLACK");
-        }
-        if (winWhite === 5) {
-          setWinner("WHITE");
-        }
-      }
-    },
-    [board]
-  );
-
+  /**
+   * canvas click function
+   * @param e - MouseEvent
+   */
   const onClickCanvas = useCallback(
     (e: MouseEvent<HTMLCanvasElement>) => {
       if (!canvasRef.current) return;
@@ -202,6 +196,9 @@ export const useOMok = () => {
     [board, count]
   );
 
+  /**
+   * 무르기 호출 함수
+   */
   const handleWithdraw = useCallback(() => {
     const newHistory = history.slice();
     newHistory.pop();
