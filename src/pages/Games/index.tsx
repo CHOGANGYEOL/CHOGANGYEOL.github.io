@@ -1,5 +1,5 @@
 const Games = () => {
-  return <>Games</>;
+  return <></>;
 };
 
 export default Games;
