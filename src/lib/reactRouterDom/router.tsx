@@ -1,9 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import { Pages } from "../../pages";
+import { Root } from "../../layout";
 
-export const router = createBrowserRouter([
+// github pages로 배포할 예정이기 때문에 hash router를 사용
+export const router = createHashRouter([
   {
     path: "/",
+    element: <Root />,
     children: [
       { path: "", element: <Pages.Main /> },
       {
@@ -11,8 +14,10 @@ export const router = createBrowserRouter([
         children: [
           { path: "", element: <Pages.Games /> },
           { path: "omok", element: <Pages.OMok /> },
+          { path: "canvas", element: <Pages.Canvas /> },
         ],
       },
     ],
+    errorElement: <Pages.NotFound />,
   },
 ]);
