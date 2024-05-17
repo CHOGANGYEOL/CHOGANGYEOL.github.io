@@ -1,3 +1,3 @@
-import { Header } from './Header';
+import Root from "./Root";
 
-export { Header };
+export { Root };

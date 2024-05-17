@@ -1,21 +1,31 @@
 {
-	"compilerOptions": {
-		"target": "es6",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "react-jsx",
-		"allowSyntheticDefaultImports": true,
-		"noFallthroughCasesInSwitch": true,
-		"strictNullChecks": true
-	},
-	"include": ["src"]
+  "compilerOptions": {
+    "target": "ES6",
+    "useDefineForClassFields": true, // class field를 사용한다.
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+
+    "allowJs": true, // js파일을 포함 시킬 수 있게 함
+    "skipLibCheck": true, // 선언파일(.d.ts)의 타입체크를 건너뛰게 한다.
+    "forceConsistentCasingInFileNames": true, // import시 대소문자 일관성을 강제로 함
+    "strictNullChecks": true, // null과 undefined를 엄격하게 체크한다.
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true, // json 파일을 module처럼 가져올 수 있게함
+    "isolatedModules": true, // 각 파일을 독립된 module로 취x급하여 컴파일한다.
+    "noEmit": true, // ts 컴파일러가 js코드를 출력하지 않도록 설정
+    "jsx": "react-jsx",
+
+    "allowImportingTsExtensions": true, // .ts 확장자가 있는 파일을 모듈로 가져올 수 있게 함.
+
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true, // switch문 내에서 case 절이 의도치 않게 다음 case로 떨어지는것을 방지
+
+    "noUnusedParameters": true, // 함수의 매개변수 중 사용되지 않는 것이 있으면 오류를 발생
+    "noUnusedLocals": true // 로컬 변수 중 사용되지 않는 변수가 있을 경우 오류를 발생
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

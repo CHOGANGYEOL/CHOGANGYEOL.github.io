@@ -1,29 +1,23 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import { barStyle } from "../../assets/styles/scroll";
+import { CustomToastStyle } from "../reactToastify/customStyle";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  padding:0;
-  margin:0;
 }
-html {font-size:62.5%}
+html {
+  font-size:62.5%;
+}
 body {
   margin: 0;
-  font-family: "Noto Sans", sans-serif;
-  font-style: normal;
   font-size: 1.6rem;
-  color:${({ theme }) => theme.colors.black};
-  overflow: hidden;
-}
-#root {
-  background-color: ${({ theme }) => theme.colors.white};
-}
-h1, h2, p, ul, li, ol {margin: 0; padding: 0}
-ul, ol {
-  list-style: none;
+  ${barStyle()}
 }
 button {
-  border:0;
+  border: none;
   background-color: transparent;
   cursor: pointer;
   &:disabled {
@@ -31,9 +25,24 @@ button {
     cursor: default;
   }
 }
-img {
-  max-width: 100%;
+
+li {
+    list-style: none;
 }
+
+a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.black}
+}
+a, button, textarea {
+  outline:none;
+}
+${CustomToastStyle}
 `;
 
-export default GlobalStyle;
+export const ScrollFix = createGlobalStyle`
+  html {
+    overflow: hidden;
+  }
+`;
+export default ScrollFix;
