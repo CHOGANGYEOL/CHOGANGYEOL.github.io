@@ -9,6 +9,10 @@ export const router = createHashRouter([
     element: <Root />,
     children: [
       { path: "", element: <Pages.Main /> },
+      { path: "blog", element: <Pages.Blog /> },
+      { path: "profile", element: <Pages.Profile /> },
+      { path: "project", element: <Pages.Project /> },
+      { path: "terminal", element: <Pages.Terminal /> },
       {
         path: "games",
         children: [
