@@ -13,14 +13,6 @@ export const router = createHashRouter([
       { path: "profile", element: <Pages.Profile /> },
       { path: "project", element: <Pages.Project /> },
       { path: "terminal", element: <Pages.Terminal /> },
-      {
-        path: "games",
-        children: [
-          { path: "", element: <Pages.Games /> },
-          { path: "omok", element: <Pages.OMok /> },
-          { path: "canvas", element: <Pages.Canvas /> },
-        ],
-      },
     ],
     errorElement: <Pages.NotFound />,
   },
