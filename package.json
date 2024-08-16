@@ -13,6 +13,9 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.23",
+    "@uiw/react-md-editor": "^4.0.4",
+    "ky": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
