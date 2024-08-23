@@ -9,18 +9,17 @@ export const router = createHashRouter([
     element: <Root />,
     children: [
       { path: "", element: <Pages.Main /> },
-      { path: "blog", element: <Pages.Blog /> },
+      {
+        path: "blog",
+        children: [
+          { path: "", element: <Pages.Blog.index /> },
+          { path: ":id", element: <Pages.Blog.View /> },
+          { path: "add", element: <Pages.Blog.Add /> },
+        ],
+      },
       { path: "profile", element: <Pages.Profile /> },
       { path: "project", element: <Pages.Project /> },
       { path: "terminal", element: <Pages.Terminal /> },
-      {
-        path: "games",
-        children: [
-          { path: "", element: <Pages.Games /> },
-          { path: "omok", element: <Pages.OMok /> },
-          { path: "canvas", element: <Pages.Canvas /> },
-        ],
-      },
     ],
     errorElement: <Pages.NotFound />,
   },

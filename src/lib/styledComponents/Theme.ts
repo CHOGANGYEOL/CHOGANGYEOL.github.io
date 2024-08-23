@@ -97,7 +97,7 @@ const breakPoint = {
   medium: "max-width: 768px",
   large: "max-width: 1024px",
   xLarge: "max-width: 1280px",
-};
+} as const;
 
 const Theme: DefaultTheme = {
   colors,

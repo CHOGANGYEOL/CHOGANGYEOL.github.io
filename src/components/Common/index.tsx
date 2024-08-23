@@ -1,5 +1,12 @@
 import styled, { css } from "styled-components";
-import { FlexProps } from "./types";
+import { FlexProps, GridProps } from "./types";
+
+import {
+  ColorKeys,
+  FontKeys,
+  getColorStyle,
+  getFontStyle,
+} from "../../lib/styledComponents/function";
 
 export const Flex = styled.div<FlexProps>`
   display: flex;
@@ -28,4 +35,26 @@ export const VStack = styled(Flex)`
 
 export const HStack = styled(Flex)`
   flex-direction: row;
+`;
+
+export const Grid = styled.div<GridProps>`
+  display: grid;
+  grid-template-columns: repeat(${({ $columns = 1 }) => $columns}, 1fr);
+  ${({ $gap, $alignItems, $justifyContent }) => css`
+    gap: ${$gap};
+    align-items: ${$alignItems};
+    justify-content: ${$justifyContent};
+  `}
+`;
+
+export const Paragraph = styled.p<{
+  $font?: FontKeys;
+  $color?: ColorKeys;
+  $fontWeight?: number;
+}>`
+  ${({ $font, $color, $fontWeight }) => css`
+    ${getColorStyle($color)};
+    ${getFontStyle($font)};
+    font-weight: ${$fontWeight};
+  `};
 `;

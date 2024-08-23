@@ -66,3 +66,10 @@ export interface FlexProps {
   $alignItems?: AlignItems;
   $alignSelf?: AlignSelf;
 }
+
+export interface GridProps {
+  $columns?: number;
+  $gap?: string;
+  $justifyContent?: JustifyContent;
+  $alignItems?: AlignItems;
+}

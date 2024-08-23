@@ -1,7 +1,6 @@
 import Blog from "./Blog";
-import Games from "./Games";
-import Canvas from "./Games/Canvas";
-import OMok from "./Games/OMok";
+import BlogAdd from "./Blog/Add";
+import BlogView from "./Blog/View";
 import Main from "./Main";
 import NotFound from "./NotFound";
 import Profile from "./Profile";
@@ -10,11 +9,12 @@ import Terminal from "./Terminal";
 
 export const Pages = {
   Main,
-  Games,
-  OMok,
-  Canvas,
   NotFound,
-  Blog,
+  Blog: {
+    index: Blog,
+    View: BlogView,
+    Add: BlogAdd,
+  },
   Profile,
   Project,
   Terminal,
