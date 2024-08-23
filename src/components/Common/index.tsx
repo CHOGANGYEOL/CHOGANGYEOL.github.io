@@ -1,6 +1,13 @@
 import styled, { css } from "styled-components";
 import { FlexProps } from "./types";
 
+import {
+  ColorKeys,
+  FontKeys,
+  getColorStyle,
+  getFontStyle,
+} from "../../lib/styledComponents/function";
+
 export const Flex = styled.div<FlexProps>`
   display: flex;
   ${({
@@ -28,4 +35,11 @@ export const VStack = styled(Flex)`
 
 export const HStack = styled(Flex)`
   flex-direction: row;
+`;
+
+export const Paragraph = styled.p<{ $font?: FontKeys; $color?: ColorKeys }>`
+  ${({ $font, $color }) => css`
+    ${getColorStyle($color)}
+    ${getFontStyle($font)}
+  `};
 `;

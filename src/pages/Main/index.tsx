@@ -1,28 +1,200 @@
+import styled, { keyframes } from "styled-components";
+import Theme from "../../lib/styledComponents/Theme";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { HStack } from "../../components/Common";
-import { Button } from "../../components/Button";
 
+const DATA = [
+  {
+    message: "PROFILE",
+    href: "profile",
+  },
+  {
+    message: "PROJECT",
+    href: "project",
+  },
+  {
+    message: "",
+    href: null,
+  },
+  {
+    message: "BLOG",
+    href: "blog",
+  },
+  {
+    message: "TERMINAL",
+    href: "terminal",
+  },
+  {
+    message: "",
+    href: null,
+  },
+] as const;
 const Main = () => {
+  const popRef = useRef(-1);
   const navigate = useNavigate();
+
+  const [timer, setTimer] = useState<number | null>(null);
+
+  const onInteractive = async () => {
+    try {
+      for (let i = 0; i <= 6; i++) {
+        popRef.current = i;
+        await new Promise<void>((resolve) => {
+          const t_ = setTimeout(resolve, 160);
+          setTimer(t_);
+        });
+      }
+      popRef.current = -1;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    const timer_ = window.setTimeout(onInteractive, 1000);
+    return () => window.clearTimeout(timer_);
+  }, []);
+
+  useEffect(() => {
+    return () => window.clearTimeout(Number(timer));
+  }, [timer]);
+
   return (
-    <HStack $gap="2rem">
-      <Button
-        onClick={() => {
-          navigate("/games");
-        }}
-      >
-        이동
-      </Button>
-      <Button
-        onClick={() => {
-          toast.info("test");
-        }}
-      >
-        토스트
-      </Button>
-    </HStack>
+    <Wrapper>
+      <div className="inner">
+        {DATA.map((el, idx) => (
+          <Triangle
+            key={"triangle--" + String(idx)}
+            pop={popRef.current === idx}
+            onClick={() => {
+              if (!el.href) onInteractive();
+              else navigate(el.href);
+            }}
+          >
+            <Message pop={popRef.current === idx}>{el.message}</Message>
+          </Triangle>
+        ))}
+      </div>
+    </Wrapper>
   );
 };
+
+const hexagonalSpin = keyframes`
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+`;
+
+const zoomIn = keyframes`
+	0% { opacity: 0; transform: scale(.5, .5); }
+	100% { opacity: 1; transform: scale(1, 1); }
+`;
+
+const zoomInHexaMobile = keyframes`
+	0% { opacity: 0; transform: scale(.5, .5); }
+	100% { opacity: 1; transform: scale(.8, .8); }
+`;
+
+const Wrapper = styled.div`
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 0px;
+  right: 0px;
+  top: 0;
+  bottom: 0px;
+  margin: auto;
+  animation: 120s ${hexagonalSpin} linear infinite;
+
+  @media screen and (${Theme.breakPoint.small}) {
+    top: -60px;
+    width: 100%;
+    height: 400px;
+  }
+  .inner {
+    height: 260px;
+    width: 300px;
+    padding: 70px 0;
+    position: relative;
+    margin: 0 auto;
+    animation: 1.4s ${zoomIn} ease;
+
+    @media screen and (${Theme.breakPoint.small}) {
+      animation: 1.4s ${zoomInHexaMobile} ease;
+      transform: scale(0.8);
+    }
+
+    @media screen and (max-height: 600px) and (orientation: landscape) {
+      animation: 1.4s ${zoomInHexaMobile} ease;
+      transform: scale(0.8);
+    }
+  }
+`;
+
+const Triangle = styled.button<{ pop: boolean }>`
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin-left: 75px;
+  margin-top: -3px;
+  border-style: solid;
+  border-width: 130px 75px 0;
+  transform-origin: 75px 133px;
+  transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  cursor: pointer;
+  outline: none;
+
+  ${({ pop }) => {
+    const angles = [0, 60, 120, 180, 240, 300];
+    const colors = [
+      "#a1d0ff",
+      "#9be8af",
+      "#c1aaf8",
+      "#fcf894",
+      "#ffc2fd",
+      "#ffc8c8",
+    ];
+
+    return angles
+      .map(
+        (angle, index) => `
+      &:nth-child(${index + 1}) {
+        transform: ${
+          pop
+            ? `rotate(${angle}deg) translate(0, -20px)`
+            : `rotate(${angle}deg)`
+        };
+        border-color: ${colors[index]} transparent;
+
+        &:hover {
+          transform: rotate(${angle}deg) translate(0, -10px);
+        }
+      }
+    `
+      )
+      .join("");
+  }}
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:hover span {
+    top: -180px;
+  }
+`;
+
+const Message = styled.span<{ pop: boolean }>`
+  display: block;
+  position: absolute;
+  top: ${({ pop }) => (pop ? "-180px" : "-160px")};
+  padding-bottom: 40px;
+  transform: translateX(-50%);
+  font-weight: 600;
+  transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+  z-index: 0;
+`;
 
 export default Main;
