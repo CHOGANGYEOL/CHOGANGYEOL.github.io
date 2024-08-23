@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import Theme from "../../lib/styledComponents/Theme";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -96,24 +96,16 @@ const zoomInHexaMobile = keyframes`
 
 const Wrapper = styled.div`
   position: absolute;
-  width: 400px;
-  height: 400px;
-  left: 0px;
-  right: 0px;
-  top: 0;
-  bottom: 0px;
+  width: 40rem;
+  aspect-ratio: 1/1;
+  inset: 0;
   margin: auto;
   animation: 120s ${hexagonalSpin} linear infinite;
 
-  @media screen and (${Theme.breakPoint.small}) {
-    top: -60px;
-    width: 100%;
-    height: 400px;
-  }
   .inner {
-    height: 260px;
-    width: 300px;
-    padding: 70px 0;
+    width: 30rem;
+    aspect-ratio: 1/1;
+    padding: 7rem 0;
     position: relative;
     margin: 0 auto;
     animation: 1.4s ${zoomIn} ease;
@@ -133,21 +125,18 @@ const Wrapper = styled.div`
 const Triangle = styled.button<{ pop: boolean }>`
   display: block;
   position: absolute;
-  width: 0;
-  height: 0;
-  padding: 0;
-  margin-left: 75px;
-  margin-top: -3px;
+  margin-left: 7.5rem;
   border-style: solid;
-  border-width: 130px 75px 0;
-  transform-origin: 75px 133px;
+  border-width: 13rem 7.5rem 0;
+  /* calc(width + margin) */
+  transform-origin: 7.5rem calc(13rem + 0.5rem);
   transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   cursor: pointer;
   outline: none;
 
   ${({ pop }) => {
-    const angles = [0, 60, 120, 180, 240, 300];
-    const colors = [
+    const ANGLE = 60;
+    const items = [
       "#a1d0ff",
       "#9be8af",
       "#c1aaf8",
@@ -156,24 +145,20 @@ const Triangle = styled.button<{ pop: boolean }>`
       "#ffc8c8",
     ];
 
-    return angles
-      .map(
-        (angle, index) => `
-      &:nth-child(${index + 1}) {
-        transform: ${
-          pop
-            ? `rotate(${angle}deg) translate(0, -20px)`
-            : `rotate(${angle}deg)`
-        };
-        border-color: ${colors[index]} transparent;
+    return items.map(
+      (item, index) => css`
+        &:nth-child(${index + 1}) {
+          transform: ${pop
+            ? `rotate(${index * ANGLE}deg) translate(0, -20px)`
+            : `rotate(${index * ANGLE}deg)`};
+          border-color: ${item} transparent;
 
-        &:hover {
-          transform: rotate(${angle}deg) translate(0, -10px);
+          &:hover {
+            transform: rotate(${index * ANGLE}deg) translate(0, -10px);
+          }
         }
-      }
-    `
-      )
-      .join("");
+      `
+    );
   }}
 
   &:hover {
