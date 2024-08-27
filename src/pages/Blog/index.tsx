@@ -1,13 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGetBlogItems } from "../../services/blog/queries";
 import { Loading } from "../../components/Common/Loading";
 import { Grid, Paragraph, VStack } from "../../components/Common";
 import styled from "styled-components";
 import Theme from "../../lib/styledComponents/Theme";
 import { formatDate } from "../../utils/format";
+import useWindowKeyDown from "../../hooks/useKeydown";
+import { toast } from "react-toastify";
 
 const Blog = () => {
+  const navigate = useNavigate();
   const { data, isSuccess, isLoading } = useGetBlogItems();
+
+  useWindowKeyDown(["a", "Meta"], () => {
+    try {
+      const input = prompt("Please enter your password");
+      if (input !== null) {
+        if (input === import.meta.env.VITE_BLOG_ADD_PASSWORD) {
+          navigate("add", { state: "success" });
+        } else {
+          throw new Error("Password does not match");
+        }
+      }
+    } catch (err) {
+      if (err instanceof Error) toast.error(err.message);
+    }
+  });
 
   if (isLoading) return <Loading />;
 
@@ -15,9 +33,9 @@ const Blog = () => {
     return (
       <Wrapper $columns={4} $gap="1.2rem">
         {data.map((el) => (
-          <Link to={`${el.id}`}>
+          <Link to={`${el.id}`} key={"item--" + String(el.id)}>
             <Item $gap="1.2rem">
-              <VStack $gap="0.6rem"> 
+              <VStack $gap="0.6rem">
                 <VStack>
                   <Paragraph $font="label_2" $color="gray_600">
                     {el.category ?? "default"}

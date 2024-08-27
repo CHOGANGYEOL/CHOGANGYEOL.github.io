@@ -65,13 +65,13 @@ const Main = () => {
         {DATA.map((el, idx) => (
           <Triangle
             key={"triangle--" + String(idx)}
-            pop={popRef.current === idx}
+            $pop={popRef.current === idx}
             onClick={() => {
               if (!el.href) onInteractive();
               else navigate(el.href);
             }}
           >
-            <Message pop={popRef.current === idx}>{el.message}</Message>
+            <Message $pop={popRef.current === idx}>{el.message}</Message>
           </Triangle>
         ))}
       </div>
@@ -122,7 +122,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Triangle = styled.button<{ pop: boolean }>`
+const Triangle = styled.button<{ $pop: boolean }>`
   display: block;
   position: absolute;
   margin-left: 7.5rem;
@@ -134,7 +134,7 @@ const Triangle = styled.button<{ pop: boolean }>`
   cursor: pointer;
   outline: none;
 
-  ${({ pop }) => {
+  ${({ $pop }) => {
     const ANGLE = 60;
     const items = [
       "#a1d0ff",
@@ -148,7 +148,7 @@ const Triangle = styled.button<{ pop: boolean }>`
     return items.map(
       (item, index) => css`
         &:nth-child(${index + 1}) {
-          transform: ${pop
+          transform: ${$pop
             ? `rotate(${index * ANGLE}deg) translate(0, -20px)`
             : `rotate(${index * ANGLE}deg)`};
           border-color: ${item} transparent;
@@ -170,10 +170,10 @@ const Triangle = styled.button<{ pop: boolean }>`
   }
 `;
 
-const Message = styled.span<{ pop: boolean }>`
+const Message = styled.span<{ $pop: boolean }>`
   display: block;
   position: absolute;
-  top: ${({ pop }) => (pop ? "-180px" : "-160px")};
+  top: ${({ $pop }) => ($pop ? "-180px" : "-160px")};
   padding-bottom: 40px;
   transform: translateX(-50%);
   font-weight: 600;

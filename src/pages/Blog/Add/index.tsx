@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import { Button } from "../../../components/Button";
 import {
@@ -11,7 +11,7 @@ import { PutBlogItem } from "../../../services/blog/types";
 import { useValues } from "../../../hooks/useValues";
 import { VStack } from "../../../components/Common";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const INITIAL_VALUES: PutBlogItem = {
   id: -1,
@@ -21,50 +21,20 @@ const INITIAL_VALUES: PutBlogItem = {
 } as const;
 
 const BlogAdd = () => {
-  const checkerRef = useRef(false);
+  const { state } = useLocation();
   const navigate = useNavigate();
   const { values, onChangeValues, dispatch } = useValues({ ...INITIAL_VALUES });
 
   const { data, isSuccess } = useGetBlogItems();
-  const onChecker = useCallback(async (callback: () => void) => {
-    await new Promise((resolve, reject) => {
-      if (checkerRef.current) {
-        resolve("success");
-        return;
-      }
-
-      const input = prompt("Please enter your password");
-      if (input !== null) {
-        if (input === import.meta.env.VITE_BLOG_ADD_PASSWORD) {
-          resolve("success");
-        } else {
-          reject(new Error("Password does not match"));
-        }
-      }
-    })
-      .then((value) => {
-        if (value === "success") {
-          checkerRef.current = true;
-          callback();
-        }
-      })
-      .catch((err) => {
-        if (err instanceof Error) {
-          alert(err.message);
-        }
-        navigate(-1);
-      });
-  }, []);
 
   useEffect(() => {
-    onChecker(() => {
-      if (!isSuccess || !checkerRef.current) return;
-      const findIdx = data.reduce(
-        (acc, cur) => (acc < cur.id ? cur.id : acc),
-        INITIAL_VALUES.id
-      );
-      dispatch("SET", { id: findIdx + 1 });
-    });
+    if (!state) navigate(-1);
+    if (!isSuccess) return;
+    const findIdx = data.reduce(
+      (acc, cur) => (acc < cur.id ? cur.id : acc),
+      INITIAL_VALUES.id
+    );
+    dispatch("SET", { id: findIdx + 1 });
   }, [data]);
 
   const { mutate, isPending } = usePutBlogItem();
@@ -89,7 +59,8 @@ const BlogAdd = () => {
     },
     [values]
   );
-  if (!checkerRef.current) return <React.Fragment />;
+
+  if (!state) return <React.Fragment />;
 
   return (
     <Form {...{ onSubmit }}>
