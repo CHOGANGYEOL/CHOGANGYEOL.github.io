@@ -29,6 +29,7 @@ const DATA = [
     href: null,
   },
 ] as const;
+
 const Main = () => {
   const popRef = useRef(-1);
   const navigate = useNavigate();

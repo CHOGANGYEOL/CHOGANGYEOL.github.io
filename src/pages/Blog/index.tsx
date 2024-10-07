@@ -37,16 +37,16 @@ const Blog = () => {
             <Item $gap="1.2rem">
               <VStack $gap="0.6rem">
                 <VStack>
-                  <Paragraph $font="label_2" $color="gray_600">
+                  <Paragraph $font="main" $color="gray">
                     {el.category ?? "default"}
                   </Paragraph>
-                  <Paragraph $font="title_2" $fontWeight={700} $ellipsis={1}>
+                  <Paragraph $font="title_24" $fontWeight={700} $ellipsis={1}>
                     {el.title}
                   </Paragraph>
                 </VStack>
                 <Paragraph $ellipsis={4}>{el.data}</Paragraph>
               </VStack>
-              <Paragraph className="date" $color="gray_700" $textAlign="right">
+              <Paragraph className="date" $color="gray" $textAlign="right">
                 {formatDate(new Date(el.updatedAt))}
               </Paragraph>
             </Item>
@@ -64,7 +64,7 @@ const Wrapper = styled(Grid)`
 const Item = styled(VStack)`
   cursor: pointer;
   padding: 1.2rem;
-  background-color: ${Theme.colors.gray[100]};
+  background-color: ${Theme.colors.white};
   border-radius: 0.4rem;
   transition: transform 0.2s;
   &:hover {
@@ -72,7 +72,7 @@ const Item = styled(VStack)`
   }
   .date {
     padding-top: 1.2rem;
-    border-top: 1px solid ${Theme.colors.gray[400]};
+    border-top: 1px solid ${Theme.colors.gray};
   }
 `;
 

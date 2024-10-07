@@ -31,7 +31,7 @@ export const Button = (props: ButtonProps) => {
     $buttonType = "FILLED",
     $color = "PRIMARY",
     $corner = "ROUNDED",
-    $fontSize = "label_2",
+    $fontSize = "main",
     $fontWeight = 400,
     $size = "M",
     children,

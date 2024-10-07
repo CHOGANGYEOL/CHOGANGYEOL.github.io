@@ -26,11 +26,11 @@ const NotFound = () => {
 const Wrapper = styled(VStack)`
   min-height: 100vh;
   .bigger {
-    ${({ theme }) => theme.font.headline[1]};
+    ${({ theme }) => theme.font.title[48]};
     font-weight: 600;
   }
   em {
-    color: ${({theme}) => theme.colors.gray[600]}
+    color: ${({ theme }) => theme.colors.gray[600]};
   }
 `;
 

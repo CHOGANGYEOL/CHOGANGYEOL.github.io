@@ -16,9 +16,9 @@ const BlogView = () => {
     return (
       <VStack style={{ padding: "2.4rem" }} $gap="3.6rem">
         <VStack>
-          <Paragraph $color="gray_600">{data.category}</Paragraph>
+          <Paragraph $color="gray">{data.category}</Paragraph>
           <Paragraph
-            $font="headline_1"
+            $font="title_48"
             $fontWeight={700}
             style={{ borderBottom: `1px solid ${Theme.colors.gray[400]}` }}
           >

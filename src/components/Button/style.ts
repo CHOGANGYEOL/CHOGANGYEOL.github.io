@@ -5,134 +5,66 @@ export const buttonColorStyles: ButtonColorStyle = {
   FILLED: {
     PRIMARY: {
       color: "white",
-      backgroundColor: "primary_600",
+      backgroundColor: "primary",
       disabled: {
-        backgroundColor: "gray_400",
+        backgroundColor: "gray",
       },
       hover: {
-        backgroundColor: "primary_500",
+        backgroundColor: "primary",
       },
       active: {
-        backgroundColor: "primary_700",
-      },
-    },
-    SECONDARY: {
-      color: "primary_800",
-      backgroundColor: "primary_200",
-      disabled: {
-        backgroundColor: "gray_400",
-        color: "white",
-      },
-      hover: {
-        backgroundColor: "primary_100",
-      },
-      active: {
-        backgroundColor: "primary_300",
+        backgroundColor: "primary",
       },
     },
     TERTIARY: {
-      color: "gray_900",
-      backgroundColor: "gray_200",
+      color: "white",
+      backgroundColor: "gray",
       disabled: {
-        backgroundColor: "gray_200",
-        color: "gray_600",
+        backgroundColor: "white",
+        color: "gray",
       },
       hover: {
-        backgroundColor: "gray_100",
+        backgroundColor: "gray",
       },
       active: {
-        backgroundColor: "gray_300",
+        backgroundColor: "gray",
       },
-    },
-    RED: {
-      color: "red_700",
-      backgroundColor: "red_200",
     },
   },
   LINE: {
     PRIMARY: {
-      color: "primary_700",
+      color: "primary",
       backgroundColor: "white",
       border: {
         width: "0.1rem",
         style: "solid",
-        color: "primary_500",
+        color: "primary",
       },
       disabled: {
-        color: "gray_500",
+        color: "gray",
         border: {
-          color: "gray_500",
+          color: "gray",
         },
       },
       hover: {
-        backgroundColor: "primary_100",
+        backgroundColor: "primary",
       },
       active: {
-        backgroundColor: "primary_200",
-      },
-    },
-    SECONDARY: {
-      color: "gray_800",
-      backgroundColor: "white",
-      border: {
-        width: "0.1rem",
-        style: "solid",
-        color: "gray_500",
-      },
-      disabled: {
-        color: "gray_500",
-        border: {
-          color: "gray_500",
-        },
-      },
-      hover: {
-        backgroundColor: "gray_100",
-      },
-      active: {
-        backgroundColor: "gray_200",
-      },
-    },
-    RED: {
-      color: "red_500",
-      backgroundColor: "white",
-      border: {
-        width: "0.1rem",
-        style: "solid",
-        color: "red_500",
-      },
-      disabled: {
-        color: "red_300",
-        border: {
-          color: "red_300",
-        },
-      },
-      hover: {
-        backgroundColor: "red_200",
-      },
-      active: {
-        backgroundColor: "red_300",
+        backgroundColor: "primary",
       },
     },
     TERTIARY: {
-      color: "gray_500",
+      color: "gray",
       backgroundColor: "white",
       border: {
         width: "0.1rem",
         style: "solid",
-        color: "gray_500",
+        color: "gray",
       },
     },
   },
   NONE: {
     PRIMARY: {
-      backgroundColor: "transparent",
-      color: "black",
-    },
-    RED: {
-      backgroundColor: "transparent",
-      color: "black",
-    },
-    SECONDARY: {
       backgroundColor: "transparent",
       color: "black",
     },
