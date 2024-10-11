@@ -17,16 +17,19 @@ type Education = Data<{
   details: string[];
 }>;
 
+interface Detail {
+  title: React.ReactNode;
+  details: React.ReactNode[];
+}
+
 type Works = Data<{
   name: string;
   startDate: string;
   endDate: string;
   summary: string;
   description: string;
-  details:
-    | React.ReactNode[]
-    | { title: React.ReactNode; details: React.ReactNode[] }[];
+  details: React.ReactNode[] | Detail[];
   tags: string[];
 }>;
 
-export type { User, Education, Works };
+export type { User, Education, Works, Detail };
