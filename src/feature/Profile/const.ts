@@ -68,6 +68,17 @@ const WORKS: Types.Works = {
         "styled-components",
       ],
     },
+    {
+      name: "코스모스",
+      startDate: "2023.03",
+      endDate: "2023.09",
+      summary:
+        "실시간 스트리밍 서비스를 제공하여 방송/시청을 할 수 있는 웹앱을 개발합니다.",
+      description:
+        "초기 세팅부터 개발까지 프론트엔드의 모든 개발을 담당하여 개발했습니다.",
+      details: [],
+      tags: [],
+    },
   ],
 } as const;
 
