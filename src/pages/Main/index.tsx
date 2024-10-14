@@ -42,7 +42,7 @@ const Main = () => {
         popRef.current = i;
         await new Promise<void>((resolve) => {
           const t_ = setTimeout(resolve, 160);
-          setTimer(t_);
+          setTimer(Number(t_));
         });
       }
       popRef.current = -1;
