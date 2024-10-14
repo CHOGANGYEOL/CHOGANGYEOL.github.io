@@ -41,28 +41,30 @@ const WORKS: Types.Works = {
       summary:
         "디지털 약국을 통한 고객과 약국간의 비대면 소통 및 약구매를 위한 어플을 개발합니다.",
       description:
-        "약사용 관리자페이지의 테이블 및 채팅/주문, 자사 약국 관리페이지, 회사 홈페이지를 담당하여 개발했습니다.",
+        "CRM페이지의 테이블 및 채팅/주문, 자사 백오피스 페이지 개발및 유지보수, 회사 홈페이지를 담당하여 개발했습니다.",
       details: [
         {
           title:
-            "TypeScript, Next.js를 활용하여 약사용 관리자페이지, 자사 약국 관리페이지 담당",
+            "TypeScript, Next.js를 활용하여 CRM페이지 및 자사 백오피스 페이지 개발및 유지보수",
           details: [
-            "SendBird를 활용하여 채팅 시스템 구축 및 커스터마이징",
+            "SendBird를 활용하여 양방향통신 채팅 시스템 구축 및 커스터마이징",
             "xlsx를 활용하여 Client Side에서 Excel 다운로드 기능 개발",
+            "Chart.js를 활용해 백오피스 통계 페이지 개발",
             "백오피스 페이지 유지보수 및 리뉴얼",
           ],
         },
         {
           title: "Vanilla js로 제작 된 자사 홈페이지 유지보수 담당",
           details: [
-            "하드코딩된 테이블형태를 JSON형태로 만들어, 관리할 수 있도록 디벨롭",
+            "하드코딩된 테이블형태를 JSON형태로 만들어, 관리할 수 있도록 develop",
             "MutationObserver를 활용하여 Vanilla js로 swipe 시스템 개발",
           ],
         },
       ],
       tags: [
-        "TypeScript",
+        "Typescript",
         "Javascript",
+        "React.js",
         "Next.js",
         "axios",
         "styled-components",
@@ -76,8 +78,35 @@ const WORKS: Types.Works = {
         "실시간 스트리밍 서비스를 제공하여 방송/시청을 할 수 있는 웹앱을 개발합니다.",
       description:
         "초기 세팅부터 개발까지 프론트엔드의 모든 개발을 담당하여 개발했습니다.",
-      details: [],
-      tags: [],
+      details: [
+        "입사 시 기존코드의 문제점을 여럿 발견 후 코드 자체의 리뉴얼이 필요하다 판단하여 주도하에 코드 전체 리뉴얼",
+        "jwt token을 사용하여 로그인 시스템 구축",
+        "axios interceptors를 통한 에러 핸들링 및 토큰 재발급 로직 개발",
+        {
+          title: "채팅 시스템 구축",
+          details: [
+            "websocket & stomp.js를 활용하여 양방향 통신 개발",
+            "채팅 및 도네이션 시스템 개발",
+          ],
+        },
+        "tanstack-query를 도입하여 api request에 대한 생명주기, 상태관리 로직 개발",
+        "infinity-query와 react intersection observer를 활용한 무한스크롤 기능 구현",
+        "AWS IVS Player를 커스텀하여 자사 플레이어 구축 후 스트리밍 서비스를 개발",
+        "i18next를 이용한 다국어 서비스 개발(한국어/일본어/영어)",
+        "i'm port(아임포트)를 활용하여 자사 결제시스템 구축",
+        "Blob 형태로 다운로드 기능 구현",
+        "백오피스 페이지 구축",
+      ],
+      tags: [
+        "React.js",
+        "Javascript",
+        "axios",
+        "tanstack-query",
+        "styled-components",
+        "webSocket",
+        "stomp.js",
+        "redux",
+      ],
     },
   ],
 } as const;
