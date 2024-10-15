@@ -22,8 +22,8 @@ const Profile = () => {
         <article id="education">
           <h3>EDUCATION {PROFILE_DATA.EDUCATION.emoji}</h3>
           <ul>
-            {PROFILE_DATA.EDUCATION.data.map((el) => (
-              <li>
+            {PROFILE_DATA.EDUCATION.data.map((el, idx) => (
+              <li key={"education--" + String(idx)}>
                 <Paragraph>
                   {el.name}{" "}
                   <span>
@@ -31,8 +31,8 @@ const Profile = () => {
                   </span>
                 </Paragraph>
                 <ul>
-                  {el.details.map((detail) => (
-                    <li>{detail}</li>
+                  {el.details.map((detail, idx) => (
+                    <li key={"education--detail--" + String(idx)}>{detail}</li>
                   ))}
                 </ul>
               </li>
@@ -55,12 +55,25 @@ const Profile = () => {
                 <Paragraph>{el.summary}</Paragraph>
                 <Paragraph>{el.description}</Paragraph>
                 <ul>
-                  {el.details.map((detail) => {
-                    if (isObjectDetail(detail)) {
-                      return <li>{detail.title}</li>;
-                    } else {
-                      return <li>{detail}</li>;
-                    }
+                  {el.details.map((detail, idx) => {
+                    return (
+                      <li key={"detail--" + String(idx)}>
+                        {isObjectDetail(detail) ? (
+                          <ul>
+                            {detail.title}
+                            <ul>
+                              {detail.details.map((el, idx) => (
+                                <li key={"detail--2depth--" + String(idx)}>
+                                  {el}
+                                </li>
+                              ))}
+                            </ul>
+                          </ul>
+                        ) : (
+                          detail
+                        )}
+                      </li>
+                    );
                   })}
                 </ul>
               </li>
