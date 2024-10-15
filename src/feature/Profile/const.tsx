@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type * as Types from "./types";
 
 const USER: Types.User = {
@@ -106,6 +107,58 @@ const WORKS: Types.Works = {
         "webSocket",
         "stomp.js",
         "redux",
+      ],
+    },
+    {
+      name: "이앤유시스템즈",
+      startDate: "2020.02",
+      endDate: "2022.08",
+      summary:
+        "크라우드펀딩, 판매대행, 유통, B2B사업 서비스 플랫폼을 제공하고 있습니다.",
+      description:
+        "UI/UX, 상세페이지, 이벤트배너 디자인 및 홈페이지 퍼블리싱 업무를 담당하였습니다.",
+      details: [
+        // 관련 브랜드 사진 합성 및 보정
+        // AOS Scroll Animation을 활용하여 스크롤에 반응하는 애니메이션 구현
+        // 코리아스피드 홈페이지 디자인 및 퍼블리싱 (2020-06-01 ~ 2020-07-01)
+        // 배포 url : https://koreaspeed.com
+        // 카페24를 기반으로 도메인 구매 연결 및 디자인 퍼블리싱 업무 담당
+        // 관련 브랜드 사진 합성 및 보정
+        // 아네모네 홈페이지 디자인 및 퍼블리싱 (2020-10-01 ~ 2020-11-01)
+        // 배포 url : https://anemonemall.com
+        // 카페24를 기반으로 도메인 구매 연결 및 디자인 퍼블리싱 업무 담당
+        // 관련 브랜드 사진 합성 및 보정
+        // 클레냥 홈페이지 디자인 및 퍼블리싱 (2020-07-01 ~ 2020-08-01)
+        // 배포 url : https://clenyang.com
+        // GDWEB WINNER PRIZE 수상
+        // 고양이 자동 화장실 사이트를 디자인, 퍼블리싱을 담당하여 홈페이지를 제작
+        // 관련 브랜드 사진 합성 및 보정
+        // 마크라모터스 웹 디자인 및 퍼블리싱 (2021-01-01 ~ 2021-10-01)
+        // 배포 url : https://macramotors.com
+        // GDWEB WINNER PRIZE 수상
+        // 자동차 튜닝 사이트의 디자인 퍼블리싱을 담당하여 홈페이지를 제작
+        // 관련 브랜드 사진 합성 및 보정
+        // 자사 홈페이지 리뉴얼 (2021-10-01 ~ 2022-08-01)
+        // 배포 url : http://skin-skin4.eipc00.cafe24.com
+        // 카페24를 기반으로 자사 홈페이지 리뉴얼 작업 디자인 및 퍼블리싱을 담당하였으며 포트폴리오 페이지를 구축하여 제작한 홈페이지의 포트폴리오를 만듬
+        {
+          title: "레이윙 홈페이지 디자인 및 퍼블리싱 (2020-05-01 ~ 2020-06-01)",
+          details: [
+            <Link to="https://raywing.co.kr">
+              배포 url : https://raywing.co.kr
+            </Link>,
+            "카페24를 사용하여 레이윙 홈페이지 디자인 및 퍼블리싱 업무 담당",
+          ],
+        },
+      ],
+      tags: [
+        "HTML5",
+        "CSS3",
+        "Javascript",
+        "JQuery",
+        "Figma",
+        "PhotoShop",
+        "illustrator",
       ],
     },
   ],
