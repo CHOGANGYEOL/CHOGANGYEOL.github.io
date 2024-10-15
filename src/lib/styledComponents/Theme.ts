@@ -1,90 +1,25 @@
 import { type DefaultTheme } from "styled-components";
 
 const colors = {
-  white: "#fff",
-  black: "#212529",
   transparent: "transparent",
-  red: {
-    200: "#FFF5F5",
-    300: "#FFCAC7",
-    400: "#FC8E8B",
-    500: "#F75B5B",
-    600: "#F74444",
-    700: "#E43030",
-  },
-  green: {
-    200: "#E1FCEC",
-    300: "#C1F7D7",
-    400: "#7EE7AE",
-    500: "#43DD8A",
-    600: "#1CC880",
-    700: "#13AF6E",
-  },
-  blue: {
-    200: "#F2F9FF",
-    300: "#CCDDFF",
-    400: "#99B8FF",
-    500: "#638DFF",
-    600: "#567AFA",
-    700: "#3862D6",
-  },
-  yellow: {
-    200: "#FFF9E7",
-    300: "#FFF1C8",
-    400: "#FFD968",
-    500: "#FFC518",
-    600: "#FF9900",
-    700: "#F57600",
-  },
-  gray: {
-    100: "#F7F9FA",
-    200: "#F1F3F5",
-    300: "#E9ECEF",
-    400: "#DDE1E6",
-    500: "#CED4DA",
-    600: "#ADB5BD",
-    700: "#868E96",
-    800: "#5E646C",
-    900: "#343A40",
-  },
-  primary: {
-    100: "#F2FCFC",
-    200: "#E7FBFA",
-    300: "#C2F2EF",
-    400: "#78E1DC",
-    500: "#49D4CE",
-    600: "#23C5BE",
-    700: "#0AB4AD",
-    800: "#16A59F",
-    900: "#08837E",
-  },
+  white: "#fff",
+  black: "#222",
+  gray: "#aaa",
+  primary: "#f87c56",
+  purple: "#5666f8",
 } as const;
 
 const font = {
-  headline: {
-    1: "font-size:3.6rem; line-height:4.8rem; letter-spacing: -.5px;",
-    2: "font-size:3.2rem; line-height:4.4rem; letter-spacing: -.5px;",
-    3: "font-size:2.8rem; line-height:4.0rem; letter-spacing: -.5px;",
-    4: "font-size:2.4rem; line-height:3.6rem; letter-spacing: -.5px;",
-  },
   title: {
-    1: "font-size:2.0rem; line-height:3.2rem; letter-spacing: -.3px;",
-    2: "font-size:1.8rem; line-height:2.8rem; letter-spacing: 0px;",
-    3: "font-size:1.6rem; line-height:2.4rem; letter-spacing: 0px;",
+    54: "font-size: 5.4rem; font-weight: 300; line-height: 100%;",
+    48: "font-size: 4.8rem; font-weight: normal; line-height: 130%;",
+    24: "font-size: 2.4rem; font-weight: 700; line-height: 130%;",
+    20: "font-size: 2.0rem; font-weight: 700; line-height: 130%;",
   },
-  body: {
-    1: "font-size:1.5rem; line-height:2.2rem; letter-spacing: 0px;",
-    2: "font-size:1.4rem; line-height:2.0rem; letter-spacing: 0px;",
-    3: "font-size:1.3rem; line-height:1.8rem; letter-spacing: 0px;",
-  },
-  caption: {
-    1: "font-size:1.2rem; line-height:1.6rem; letter-spacing: .3px;",
-    2: "font-size:1.1rem; line-height:1.4rem; letter-spacing: .3px;",
-  },
-  label: {
-    1: "font-size:1.6rem; line-height:1.6rem; letter-spacing: 0px;",
-    2: "font-size:1.4rem; line-height:1.4rem; letter-spacing: 0px;",
-  },
+  big: "font-size: 1.6rem; font-weight: normal; line-height: 130%;",
+  main: "font-size: 1.4rem; font-weight: normal; line-height: 130%;",
+  small: "font-size: 1.2rem; font-weight: normal; line-height: 130%;",
+  link: "font-size: 1.4rem; font-weight: normal; line-height: 130%;",
 } as const;
 
 const shadow = {

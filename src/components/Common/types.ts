@@ -1,3 +1,5 @@
+import { ColorKeys, FontKeys } from "../../lib/styledComponents/function";
+
 type Direction =
   | "column"
   | "column-reverse"
@@ -72,4 +74,12 @@ export interface GridProps {
   $gap?: string;
   $justifyContent?: JustifyContent;
   $alignItems?: AlignItems;
+}
+
+export interface ParagraphProps {
+  $font?: FontKeys;
+  $color?: ColorKeys;
+  $fontWeight?: number;
+  $ellipsis?: number;
+  $textAlign?: "left" | "right" | "center";
 }

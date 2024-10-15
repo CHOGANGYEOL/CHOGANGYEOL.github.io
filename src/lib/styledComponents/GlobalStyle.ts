@@ -1,8 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import { barStyle } from "../../assets/styles/scroll";
 import { CustomToastStyle } from "../reactToastify/customStyle";
+import { notoSans } from "./fontFamily";
 
 export const GlobalStyle = createGlobalStyle`
+${notoSans}
 * {
   padding: 0;
   margin: 0;
@@ -14,6 +16,7 @@ html {
 body {
   margin: 0;
   font-size: 1.6rem;
+  font-family: "Noto_Sans";
   ${barStyle()}
 }
 button {

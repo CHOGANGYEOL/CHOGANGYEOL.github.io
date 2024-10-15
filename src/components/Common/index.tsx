@@ -1,12 +1,11 @@
 import styled, { css } from "styled-components";
-import { FlexProps, GridProps } from "./types";
+import { FlexProps, GridProps, ParagraphProps } from "./types";
 
 import {
-  ColorKeys,
-  FontKeys,
   getColorStyle,
   getFontStyle,
 } from "../../lib/styledComponents/function";
+import { ellipsis } from "../../assets/styles/ellipsis";
 
 export const Flex = styled.div<FlexProps>`
   display: flex;
@@ -47,14 +46,12 @@ export const Grid = styled.div<GridProps>`
   `}
 `;
 
-export const Paragraph = styled.p<{
-  $font?: FontKeys;
-  $color?: ColorKeys;
-  $fontWeight?: number;
-}>`
-  ${({ $font, $color, $fontWeight }) => css`
-    ${getColorStyle($color)};
+export const Paragraph = styled.p<ParagraphProps>`
+  ${({ $font, $color, $fontWeight, $ellipsis, $textAlign = "left" }) => css`
+    ${$ellipsis && ellipsis($ellipsis)};
+    color: ${getColorStyle($color)};
     ${getFontStyle($font)};
     font-weight: ${$fontWeight};
+    text-align: ${$textAlign};
   `};
 `;

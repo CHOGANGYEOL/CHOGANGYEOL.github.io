@@ -3,12 +3,12 @@ import { css } from "styled-components";
 export const CustomToastStyle = css`
   .Toastify__toast {
     &-body > div {
-      ${({ theme }) => theme.font.body[1]};
+      ${({ theme }) => theme.font.main};
       font-weight: 500;
       color: ${({ theme }) => theme.colors.white};
       &:last-child::before {
         display: block;
-        ${({ theme }) => theme.font.title[2]};
+        ${({ theme }) => theme.font.title[20]};
         font-weight: 700;
       }
     }
@@ -34,22 +34,21 @@ export const CustomToastStyle = css`
       &.Toastify__toast {
         white-space: pre-wrap;
         &--error {
-          background-color: ${({ theme }) => theme.colors.red[500]} !important;
+          background-color: ${({ theme }) => theme.colors.gray} !important;
           .Toastify__toast-icon::before {
-            background-image: url("/images/common/toast-error.svg");
+            background-image: url("/assets/images/common/toast-error.svg");
           }
         }
         &--success {
-          background-color: ${({ theme }) =>
-            theme.colors.green[600]} !important;
+          background-color: ${({ theme }) => theme.colors.primary} !important;
           .Toastify__toast-icon::before {
-            background-image: url("/images/common/toast-success.svg");
+            background-image: url("/assets/images/common/toast-success.svg");
           }
         }
         &--info {
-          background-color: ${({ theme }) => theme.colors.blue[600]} !important;
+          background-color: ${({ theme }) => theme.colors.purple} !important;
           .Toastify__toast-icon::before {
-            background-image: url("/images/common/toast-info.svg");
+            background-image: url("/assets/images/common/toast-info.svg");
           }
         }
       }

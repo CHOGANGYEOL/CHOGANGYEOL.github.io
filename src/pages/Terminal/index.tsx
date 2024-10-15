@@ -16,7 +16,7 @@ const Terminal = () => {
   };
 
   return (
-    <TerminalContainer>
+    <Section>
       <h3>Welcome to CHOGANGYEOL terminal!</h3>
       <div className="divider" />
       <ul className="command">
@@ -38,12 +38,15 @@ const Terminal = () => {
           />
         </ul>
       </form>
-    </TerminalContainer>
+    </Section>
   );
 };
+const Section = styled.section`
+  width: 100%;
+  max-width: 95rem;
+  margin: 0 auto;
+  padding: 12rem 2.4rem;
 
-const TerminalContainer = styled.div`
-  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
